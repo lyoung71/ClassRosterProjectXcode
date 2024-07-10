@@ -11,16 +11,15 @@
 
 Student::Student(){}
 Student::Student(string studID, string fN, string lN, string email, int studAge, int days1, int days2, int days3, DegreeProgram prog) {
-    studentID = studID;
-    firstName = fN;
-    lastName = lN;
-    emailAddress = email;
-    age = studAge;
-    daysToComplete[0] = days1;
-    daysToComplete[1] = days2;
-    daysToComplete[2] = days3;
-    degreeProgram = prog;
+    SetID(studID);
+    SetFirstName(fN);
+    SetLastName(lN);
+    SetEmail(email);
+    SetAge(studAge);
+    SetDays(days1, days2, days3);
+    SetDegree(prog);
 }
+Student::~Student(){};
 
 string Student::GetID() {
     return studentID;
@@ -46,37 +45,43 @@ DegreeProgram Student::GetDegree() {
 
 //Setter Functions
 void Student::SetID(string ID) {
-    studentID = ID;
+    this->studentID = ID;
+    return;
 }
 
 void Student::SetFirstName(string first) {
-    firstName = first;
+    this->firstName = first;
+    return;
 }
 
 void Student::SetLastName(string last) {
-    lastName = last;
+    this->lastName = last;
+    return;
 }
 
 void Student::SetEmail(string email) {
-    emailAddress = email;
+    this->emailAddress = email;
+    return;
 }
 
 void Student::SetAge(int studentAge) {
-    age = studentAge;
+    this->age = studentAge;
+    return;
 }
 
 void Student::SetDays(int days1, int days2, int days3) {
-    daysToComplete[0] = days1;
-    daysToComplete[1] = days2;
-    daysToComplete[2] = days3;
-
+    this->daysToComplete[0] = days1;
+    this->daysToComplete[1] = days2;
+    this->daysToComplete[2] = days3;
+    return;
 }
 
 void Student::SetDegree(DegreeProgram degProg) {
-    degreeProgram = degProg;
+    this->degreeProgram = degProg;
+    return;
 }
 
-void Student::Print() const {
+void Student::Print() {
     cout << studentID <<
     "\t First Name: " << firstName <<
     "\t Last Name: " << lastName <<

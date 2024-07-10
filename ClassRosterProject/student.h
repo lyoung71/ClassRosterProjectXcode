@@ -12,6 +12,7 @@
 using namespace std;
 
 class Student {
+private:
     string studentID;
     string firstName;
     string lastName;
@@ -26,6 +27,7 @@ class Student {
         Student();
         Student(string studentID, string firstName, string lastName, string emailAddress, int age, int day1, int day2, int day3, DegreeProgram degreeProgram
                 );
+        ~Student();
         string GetID();
         string GetFirstName();
         string GetLastName();
@@ -42,7 +44,7 @@ class Student {
         void SetDays(int days1, int days2, int days3);
         void SetDegree(DegreeProgram degProg);
 
-        void Print() const;
+        void Print();
     
 };
 
