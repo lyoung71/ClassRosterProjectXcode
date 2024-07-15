@@ -8,6 +8,7 @@
 #include <string>
 #include "student.h"
 #include <stdio.h>
+using namespace std;
 
 Student::Student(){}
 Student::Student(string studID, string fN, string lN, string email, int studAge, int days1, int days2, int days3, DegreeProgram prog) {
@@ -21,26 +22,32 @@ Student::Student(string studID, string fN, string lN, string email, int studAge,
 }
 Student::~Student(){};
 
-string Student::GetID() {
-    return studentID;
+void Student::GetID() {
+    cout << studentID;
 }
-string Student::GetFirstName() {
-    return firstName;
+void Student::GetFirstName() {
+    cout << "\t First Name: " << firstName;
 }
-string Student::GetLastName() {
-    return lastName;
+void Student::GetLastName() {
+    cout << "\t Last Name: " << lastName;
 }
 string Student::GetEmail() {
     return emailAddress;
 }
-int Student::GetAge() {
-    return age;
+void Student::GetAge() {
+    cout << "\t Age: " << age;
 }
-int Student::GetDays() {
-    return daysToComplete[2];
+void Student::GetDays() {
+    cout << "\t daysInCourse: {" << daysToComplete[0] << ", " << daysToComplete[1] << ", " << daysToComplete[2] << "}";
 }
-DegreeProgram Student::GetDegree() {
-    return degreeProgram;
+void Student::GetDegree() {
+    if (degreeProgram == 0) {
+        cout << " Degree Program: SECURITY" << endl;
+    } else if (degreeProgram == 1) {
+        cout << " Degree Program: NETWORK" << endl;
+    } else {
+        cout << " Degree Program: SOFTWARE" << endl;
+    };
 }
 
 //Setter Functions
@@ -82,11 +89,12 @@ void Student::SetDegree(DegreeProgram degProg) {
 }
 
 void Student::Print() {
-    cout << studentID <<
-    "\t First Name: " << firstName <<
-    "\t Last Name: " << lastName <<
-    "\t Age: " << age <<
-    "\t daysInCourse: " << daysToComplete <<
-    "\t Degree Program: " << degreeProgram << "\n";
+    
+    GetID();
+    GetFirstName();
+    GetLastName();
+    GetAge();
+    GetDays();
+    GetDegree();
 
 }

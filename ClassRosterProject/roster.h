@@ -13,15 +13,15 @@
 using namespace std;
 
 class Roster {
-private:
-    Student* classRosterArray[5];
+
+    Student* classRosterArray[5] = {};
     
 public:
     Roster();
     ~Roster();
-    void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram);
+    void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram, int index);
     void printAll();
-    void parse(string input);
+    void parse(string input, int index);
 };
 
 

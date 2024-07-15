@@ -15,9 +15,9 @@ Roster::Roster() {
 
 };
 Roster::~Roster(){};
-void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram) {
+void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram, int index) {
     
-    Student* studentPtr = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
+    classRosterArray[index] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
     
 };
 void Roster::printAll() {
@@ -26,7 +26,7 @@ void Roster::printAll() {
         classRosterArray[i]->Print();
     }
 }
-void Roster::parse(string input) {
+void Roster::parse(string input, int index) {
     string studentID, firstName, lastName, emailAddress, currSentence, programString;
     int age, daysInCourse1, daysInCourse2, daysInCourse3;
     size_t pos, nextPos, strLength;
@@ -86,5 +86,6 @@ void Roster::parse(string input) {
 
     cout << degreeProgram << endl;
 
-    this->Roster::add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
+    this->Roster::add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram, index);
+    cout << "Parse Completed" << endl;
 };

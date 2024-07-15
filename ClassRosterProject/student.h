@@ -28,13 +28,13 @@ private:
         Student(string studentID, string firstName, string lastName, string emailAddress, int age, int day1, int day2, int day3, DegreeProgram degreeProgram
                 );
         ~Student();
-        string GetID();
-        string GetFirstName();
-        string GetLastName();
+        void GetID();
+        void GetFirstName();
+        void GetLastName();
         string GetEmail();
-        int GetAge();
-        int GetDays();
-        enum DegreeProgram GetDegree();
+        void GetAge();
+        void GetDays();
+        void GetDegree();
 
         void SetID(string ID);
         void SetFirstName(string first);

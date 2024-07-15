@@ -31,7 +31,7 @@ int main(int argc, const char * argv[]) {
     Roster classRoster;
     
     for (i = 0; i < 5; ++i) {
-        classRoster.parse(studentData[i]);
+        classRoster.parse(studentData[i], i);
     };
     
     classRoster.printAll(); //memory error
