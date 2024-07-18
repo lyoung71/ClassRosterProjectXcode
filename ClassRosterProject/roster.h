@@ -14,13 +14,18 @@ using namespace std;
 
 class Roster {
 
-    Student* classRosterArray[5] = {};
+    
     
 public:
+    Student* classRosterArray[5] = {};
     Roster();
     ~Roster();
     void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram, int index);
+    void remove(string studentID);
     void printAll();
+    void printAverageDaysInCourse(string studentID);
+    void printInvalidEmails();
+    void printByDegreeProgram(DegreeProgram degreeProgram);
     void parse(string input, int index);
 };
 

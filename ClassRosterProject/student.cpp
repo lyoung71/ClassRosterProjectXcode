@@ -22,32 +22,26 @@ Student::Student(string studID, string fN, string lN, string email, int studAge,
 }
 Student::~Student(){};
 
-void Student::GetID() {
-    cout << studentID;
+string Student::GetID() {
+    return studentID;
 }
-void Student::GetFirstName() {
-    cout << "\t First Name: " << firstName;
+string Student::GetFirstName() {
+    return firstName;
 }
-void Student::GetLastName() {
-    cout << "\t Last Name: " << lastName;
+string Student::GetLastName() {
+    return lastName;
 }
 string Student::GetEmail() {
     return emailAddress;
 }
-void Student::GetAge() {
-    cout << "\t Age: " << age;
+int Student::GetAge() {
+    return age;
 }
-void Student::GetDays() {
-    cout << "\t daysInCourse: {" << daysToComplete[0] << ", " << daysToComplete[1] << ", " << daysToComplete[2] << "}";
+Student::DaysStruct Student::GetDays() {
+    return daysToComplete;
 }
-void Student::GetDegree() {
-    if (degreeProgram == 0) {
-        cout << " Degree Program: SECURITY" << endl;
-    } else if (degreeProgram == 1) {
-        cout << " Degree Program: NETWORK" << endl;
-    } else {
-        cout << " Degree Program: SOFTWARE" << endl;
-    };
+DegreeProgram Student::GetDegree() {
+    return degreeProgram;
 }
 
 //Setter Functions
@@ -77,9 +71,9 @@ void Student::SetAge(int studentAge) {
 }
 
 void Student::SetDays(int days1, int days2, int days3) {
-    this->daysToComplete[0] = days1;
-    this->daysToComplete[1] = days2;
-    this->daysToComplete[2] = days3;
+    this->daysToComplete.day1 = days1;
+    this->daysToComplete.day2 = days2;
+    this->daysToComplete.day3 = days3;
     return;
 }
 
@@ -90,11 +84,17 @@ void Student::SetDegree(DegreeProgram degProg) {
 
 void Student::Print() {
     
-    GetID();
-    GetFirstName();
-    GetLastName();
-    GetAge();
-    GetDays();
-    GetDegree();
+    cout << GetID();
+    cout << "\t First Name: " << GetFirstName();
+    cout << "\t Last Name: " << GetLastName();
+    cout << "\t Age: " << GetAge();
+    cout << "\t daysInCourse: {" << GetDays().day1 << ", " << GetDays().day2 << ", " << GetDays().day3 << "} ";
+    if (GetDegree() == 0) {
+        cout << " Degree Program: Security" << endl;
+    } else if (GetDegree() == 1) {
+        cout << " Degree Program: Network" << endl;
+    } else {
+        cout << " Degree Program: Software" << endl;
+    };
 
 }

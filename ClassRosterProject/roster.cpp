@@ -20,12 +20,62 @@ void Roster::add(string studentID, string firstName, string lastName, string ema
     classRosterArray[index] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
     
 };
+
+void Roster::remove(string studentID) {
+    int i;
+    for (i = 0; i < 5; ++i) {
+        if (classRosterArray[i]->GetID() == studentID) {
+            delete classRosterArray[i];
+        } else {
+            cout << "Student ID does not exist" << endl;
+        }
+    }
+};
+
 void Roster::printAll() {
     int i;
     for (i = 0; i < 5; ++i) {
         classRosterArray[i]->Print();
+    };
+    cout << endl;
+}
+
+void Roster::printAverageDaysInCourse(string studentID) {
+    int i;
+    double average = 0;
+    for (i = 0; i < 5; ++i) {
+        if (classRosterArray[i]->GetID() == studentID) {
+            average = average + classRosterArray[i]->GetDays().day1;
+            average = average + classRosterArray[i]->GetDays().day2;
+            average = average + classRosterArray[i]->GetDays().day3;
+            average = average / 3;
+            cout << "Average Days in Course: " << average << endl;
+        };
     }
 }
+
+void Roster::printInvalidEmails() {
+    int i;
+    string currEmail;
+    
+    for (i = 0; i < 5; ++i) {
+        currEmail = classRosterArray[i]->GetEmail();
+        if ((currEmail.find("@") == std::string::npos) || (currEmail.find(".") == std::string::npos) || (currEmail.find(" ") != std::string::npos)) {
+            cout << "Invalid email: " << currEmail << endl;
+        }
+    }
+};
+
+void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
+    int i;
+    for (i = 0; i < 5; ++i) {
+        if (classRosterArray[i]->GetDegree() == degreeProgram) {
+            classRosterArray[i]->Print();
+        }
+    }
+};
+
+
 void Roster::parse(string input, int index) {
     string studentID, firstName, lastName, emailAddress, currSentence, programString;
     int age, daysInCourse1, daysInCourse2, daysInCourse3;
@@ -89,3 +139,4 @@ void Roster::parse(string input, int index) {
     this->Roster::add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram, index);
     cout << "Parse Completed" << endl;
 };
+

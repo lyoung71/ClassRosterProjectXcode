@@ -34,8 +34,10 @@ int main(int argc, const char * argv[]) {
         classRoster.parse(studentData[i], i);
     };
     
-    classRoster.printAll(); //memory error
+    classRoster.printAll();
+    classRoster.printInvalidEmails();
     
+    classRoster.printByDegreeProgram(SOFTWARE);
     
     return 0;
 }

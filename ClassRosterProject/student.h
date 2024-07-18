@@ -12,39 +12,44 @@
 using namespace std;
 
 class Student {
+    
+
+public:
+    struct DaysStruct {int day1, day2, day3;};
+    
+    Student();
+    Student(string studentID, string firstName, string lastName, string emailAddress, int age, int day1, int day2, int day3, DegreeProgram degreeProgram
+            );
+    ~Student();
+    string GetID();
+    string GetFirstName();
+    string GetLastName();
+    string GetEmail();
+    int GetAge();
+    DaysStruct GetDays();
+    DegreeProgram GetDegree();
+
+    void SetID(string ID);
+    void SetFirstName(string first);
+    void SetLastName(string last);
+    void SetEmail(string email);
+    void SetAge(int studentAge);
+    void SetDays(int days1, int days2, int days3);
+    void SetDegree(DegreeProgram degProg);
+
+    void Print();
+    
 private:
     string studentID;
     string firstName;
     string lastName;
     string emailAddress;
     int age;
-    int daysToComplete[3];
+    DaysStruct daysToComplete;
     DegreeProgram degreeProgram;
 
     
     
-    public:
-        Student();
-        Student(string studentID, string firstName, string lastName, string emailAddress, int age, int day1, int day2, int day3, DegreeProgram degreeProgram
-                );
-        ~Student();
-        void GetID();
-        void GetFirstName();
-        void GetLastName();
-        string GetEmail();
-        void GetAge();
-        void GetDays();
-        void GetDegree();
-
-        void SetID(string ID);
-        void SetFirstName(string first);
-        void SetLastName(string last);
-        void SetEmail(string email);
-        void SetAge(int studentAge);
-        void SetDays(int days1, int days2, int days3);
-        void SetDegree(DegreeProgram degProg);
-
-        void Print();
     
 };
 
