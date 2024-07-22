@@ -29,6 +29,7 @@ int main(int argc, const char * argv[]) {
         };
     
     Roster classRoster;
+    string currID;
     
     for (i = 0; i < 5; ++i) {
         classRoster.parse(studentData[i], i);
@@ -36,8 +37,15 @@ int main(int argc, const char * argv[]) {
     
     classRoster.printAll();
     classRoster.printInvalidEmails();
-    
+    for (i = 0; i < 5; ++i) {
+        currID = classRoster.classRosterArray[i]->GetID();
+        classRoster.printAverageDaysInCourse(currID);
+    };
     classRoster.printByDegreeProgram(SOFTWARE);
+    classRoster.remove("A3");
+    classRoster.printAll();
+    classRoster.remove("A3");
+    
     
     return 0;
 }

@@ -18,8 +18,7 @@ public:
     struct DaysStruct {int day1, day2, day3;};
     
     Student();
-    Student(string studentID, string firstName, string lastName, string emailAddress, int age, int day1, int day2, int day3, DegreeProgram degreeProgram
-            );
+    Student(string studentID, string firstName, string lastName, string emailAddress, int age, int day1, int day2, int day3, DegreeProgram degreeProgram);
     ~Student();
     string GetID();
     string GetFirstName();
@@ -36,7 +35,6 @@ public:
     void SetAge(int studentAge);
     void SetDays(int days1, int days2, int days3);
     void SetDegree(DegreeProgram degProg);
-
     void Print();
     
 private:
@@ -47,9 +45,6 @@ private:
     int age;
     DaysStruct daysToComplete;
     DegreeProgram degreeProgram;
-
-    
-    
     
 };
 

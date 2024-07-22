@@ -20,7 +20,8 @@ Student::Student(string studID, string fN, string lN, string email, int studAge,
     SetDays(days1, days2, days3);
     SetDegree(prog);
 }
-Student::~Student(){};
+Student::~Student(){
+};
 
 string Student::GetID() {
     return studentID;

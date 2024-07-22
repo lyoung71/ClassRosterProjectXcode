@@ -11,33 +11,42 @@
 
 using namespace std;
 
-Roster::Roster() {
+Roster::Roster(){};
+Roster::~Roster(){
+    for (int i = 0; i < 5; ++i) {
+        if (classRosterArray[i]->GetID() != "") {
+            delete classRosterArray[i];
+        }
+    }
+}
 
-};
-Roster::~Roster(){};
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram, int index) {
     
     classRosterArray[index] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
-    
 };
 
 void Roster::remove(string studentID) {
     int i;
+    bool found = false;
     for (i = 0; i < 5; ++i) {
         if (classRosterArray[i]->GetID() == studentID) {
             delete classRosterArray[i];
-        } else {
-            cout << "Student ID does not exist" << endl;
-        }
-    }
+            found = true;
+            break;
+        };
+    };
+    if (found == false) {
+        cout << "Student with ID " << studentID << " not found!" << endl;
+    };
 };
 
 void Roster::printAll() {
     int i;
     for (i = 0; i < 5; ++i) {
-        classRosterArray[i]->Print();
+        if (classRosterArray[i]->GetID() != "") {
+            classRosterArray[i]->Print();
+        }
     };
-    cout << endl;
 }
 
 void Roster::printAverageDaysInCourse(string studentID) {
@@ -68,6 +77,13 @@ void Roster::printInvalidEmails() {
 
 void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
     int i;
+    if (degreeProgram == 0) {
+        cout << "Degree Program: Security" << endl;
+    } else if (degreeProgram == 1) {
+        cout << "Degree Program: Network" << endl;
+    } else {
+        cout << "Degree Program: Software" << endl;
+    };
     for (i = 0; i < 5; ++i) {
         if (classRosterArray[i]->GetDegree() == degreeProgram) {
             classRosterArray[i]->Print();
@@ -85,43 +101,34 @@ void Roster::parse(string input, int index) {
     currSentence = input;
     pos = currSentence.find(",");
     studentID = currSentence.substr(0, pos);
-    cout << studentID << endl;
-    cout << currSentence << endl;
 
     pos = pos + 1;
     nextPos = currSentence.find(",", pos);
     firstName = currSentence.substr(pos, (nextPos - pos));
-    cout << firstName << endl;
 
     pos = nextPos + 1;
     nextPos = currSentence.find(",", pos);
     lastName = currSentence.substr(pos, (nextPos - pos));
-    cout << lastName << endl;
 
     pos = nextPos + 1;
     nextPos = currSentence.find(",", pos);
     emailAddress = currSentence.substr(pos, (nextPos - pos));
-    cout << emailAddress << endl;
 
     pos = nextPos + 1;
     nextPos = currSentence.find(",", pos);
     age = stoi(currSentence.substr(pos, (nextPos - pos)));
-    cout << age << endl;
 
     pos = nextPos + 1;
     nextPos = currSentence.find(",", pos);
     daysInCourse1 = stoi(currSentence.substr(pos, (nextPos - pos)));
-    cout << daysInCourse1 << endl;
 
     pos = nextPos + 1;
     nextPos = currSentence.find(",", pos);
     daysInCourse2 = stoi(currSentence.substr(pos, (nextPos - pos)));
-    cout << daysInCourse2 << endl;
 
     pos = nextPos + 1;
     nextPos = currSentence.find(",", pos);
     daysInCourse3 = stoi(currSentence.substr(pos, (nextPos - pos)));
-    cout << daysInCourse3 << endl;
 
     pos = nextPos + 1;
     strLength = currSentence.size();
@@ -134,9 +141,7 @@ void Roster::parse(string input, int index) {
         degreeProgram = SECURITY;
     }
 
-    cout << degreeProgram << endl;
 
     this->Roster::add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram, index);
-    cout << "Parse Completed" << endl;
 };
 
