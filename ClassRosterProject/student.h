@@ -12,7 +12,6 @@
 using namespace std;
 
 class Student {
-    
 
 public:
     struct DaysStruct {int day1, day2, day3;};
@@ -45,7 +44,6 @@ private:
     int age;
     DaysStruct daysToComplete;
     DegreeProgram degreeProgram;
-    
 };
 
 #endif /* student_h */

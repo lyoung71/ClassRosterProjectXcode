@@ -46,7 +46,7 @@ void Roster::printAll() {
         if (classRosterArray[i]->GetID() != "") {
             classRosterArray[i]->Print();
         }
-    };
+    }
 }
 
 void Roster::printAverageDaysInCourse(string studentID) {
@@ -140,7 +140,6 @@ void Roster::parse(string input, int index) {
     } else {
         degreeProgram = SECURITY;
     }
-
 
     this->Roster::add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram, index);
 };

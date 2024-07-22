@@ -46,6 +46,5 @@ int main(int argc, const char * argv[]) {
     classRoster.printAll();
     classRoster.remove("A3");
     
-    
     return 0;
 }
