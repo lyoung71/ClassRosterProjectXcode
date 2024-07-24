@@ -31,13 +31,13 @@ int main(int argc, const char * argv[]) {
     Roster classRoster;
     string currID;
     
-    for (i = 0; i < 5; ++i) {
+    for (i = 0; i < 5; i++) {
         classRoster.parse(studentData[i], i);
     };
     
     classRoster.printAll();
     classRoster.printInvalidEmails();
-    for (i = 0; i < 5; ++i) {
+    for (i = 0; i < 5; i++) {
         currID = classRoster.classRosterArray[i]->GetID();
         classRoster.printAverageDaysInCourse(currID);
     };
