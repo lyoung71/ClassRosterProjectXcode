@@ -28,12 +28,14 @@ void Roster::remove(string studentID) {
     int i;
     bool found = false;
     for (i = 0; i < 5; i++) {
-        if (classRosterArray[i]->GetID() == studentID) {
-            delete classRosterArray[i];
-            found = true;
-            break;
-        }
+        if (classRosterArray[i] != nullptr)
+            if (classRosterArray[i]->GetID() == studentID) {
+                classRosterArray[i] = nullptr;
+                found = true;
+                break;
+            }
     }
+    
     if (found == false) {
         cout << "Student with ID " << studentID << " not found!" << endl;
     };
@@ -42,8 +44,9 @@ void Roster::remove(string studentID) {
 void Roster::printAll() {
     int i;
     for (i = 0; i < 5; i++) {
-        if (classRosterArray[i]->GetID() != "") {
-            classRosterArray[i]->Print();
+        if (classRosterArray[i] != nullptr)
+            if (classRosterArray[i]->GetID() != "") {
+                classRosterArray[i]->Print();
         }
     }
 }

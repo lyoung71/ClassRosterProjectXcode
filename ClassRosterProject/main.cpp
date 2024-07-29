@@ -36,14 +36,19 @@ int main(int argc, const char * argv[]) {
     };
     
     classRoster.printAll();
+    cout << endl;
     classRoster.printInvalidEmails();
+    cout << endl;
     for (i = 0; i < 5; i++) {
         currID = classRoster.classRosterArray[i]->GetID();
         classRoster.printAverageDaysInCourse(currID);
     };
+    cout << endl;
     classRoster.printByDegreeProgram(SOFTWARE);
+    cout << endl;
     classRoster.remove("A3");
     classRoster.printAll();
+    cout << endl;
     classRoster.remove("A3");
     
     return 0;
